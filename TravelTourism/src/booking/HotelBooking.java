@@ -1,6 +1,5 @@
 package booking;
 
-import java.util.Date;
 
 import hotel.Hotel;
 
@@ -90,27 +89,26 @@ public class HotelBooking extends Hotel implements Booking{
 		this.checkOut = checkOut;
 	}
 
-	@Override
 	public void calculatePrice() {
+
 		
 	}
 
-	@Override
 	public void makeBooking() {
-		
-		
-	}
-
-	@Override
-	public void makePayment() {
-		
-		
-	}
-
-	@Override
-	public void confirmBooking() {
-
-	}
 	
+		
+	}
+
+	public void makePayment() {
+	
+		
+	}
+
+	public void confirmBooking() {
+	
+		
+	}
+
 
 }
+

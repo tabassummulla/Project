@@ -48,24 +48,24 @@ public class TourBooking extends Tour implements Booking {
 		this.noOfTickets = noOfTickets;
 	}
 
-	@Override
+
 	public void calculatePrice() {
 	
 		
 	}
 
-	@Override
+
 	public void makeBooking() {
 
 		
 	}
 
-	@Override
+	
 	public void makePayment() {
 	
 	}
 
-	@Override
+
 	public void confirmBooking() {
 
 		
