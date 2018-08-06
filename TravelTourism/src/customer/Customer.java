@@ -1,8 +1,13 @@
 	package customer;
-	import java.util.Date;
-	
-	
-	public class Customer {
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import db.DatabaseConnection;
+
+public class Customer {
 
 				private String emailAddress;
 				private String password;
@@ -11,6 +16,13 @@
 				private String dateOfBirth;
 				private String mobileNo;
 		
+				
+
+				
+	public Customer() {
+	}			
+				
+				
 	public Customer(String emailAddress, String password, String firstName, String lastName,
 				String dateOfBirth,String mobileNo ) {
 		
@@ -22,6 +34,49 @@
 				this.mobileNo = mobileNo;
 		}	
 
+	
+	
+	
+	public void newCustomer() {
+		
+		Connection db = null ;
+		PreparedStatement register = null;
+		
+		String create = "INSERT INTO customer" 
+		 + "(email_address, passw, first_name, last_name, dateOfBirth, mobileNo) VALUES" 
+		 + "(?, ?, ?, ?, ?, ?)";
+						
+		String emailCheck = "SELECT * FROM customer WHERE email_address = ?";
+						
+	try {	
+		db = DatabaseConnection.Connect();
+		
+		PreparedStatement chk = db.prepareStatement(emailCheck);
+			
+		chk.setString(1, emailAddress);
+		Result 
+		
+	
+		register = db.prepareStatement(create);
+		
+		register.setString(1, emailAddress);
+		register.setString(2, password);
+		register.setString(3, firstName);
+		register.setString(4, lastName);
+		register.setString(5, dateOfBirth);
+		register.setString(6, mobileNo);
+		register.executeUpdate();
+	
+		
+	} catch (SQLException e) {
+		
+		System.out.println(e.getMessage());
+		
+	}
+		
+	}
+		
+		
 	public void setEmailAddress(String emailAddress) {
 			this.emailAddress = emailAddress;
 	}	
